@@ -1,0 +1,17 @@
+# ---- 运行时/构建产物 ----
+node_modules/
+dist/
+web/dist/
+web/node_modules/
+server-data/
+*.log
+.DS_Store
+
+# ---- 凭据与密钥（绝不入库） ----
+.env
+*.secret
+secret.txt
+
+# ---- 调试/临时文件 ----
+*.tmp
+.ipynb_checkpoints/
