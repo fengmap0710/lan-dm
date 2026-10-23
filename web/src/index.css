@@ -1,0 +1,100 @@
+@import "tailwindcss";
+@import "tw-animate-css";
+@import "./tailwind-theme.css";
+@import "./typography.css";
+
+@layer base {
+  /* 细滚动条（桌面端） */
+  ::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
+  }
+  ::-webkit-scrollbar-track {
+    background: transparent;
+  }
+  ::-webkit-scrollbar-thumb {
+    background: hsl(215 16% 82%);
+    border-radius: 8px;
+  }
+  ::-webkit-scrollbar-thumb:hover {
+    background: hsl(215 14% 70%);
+  }
+  * {
+    scrollbar-width: thin;
+    scrollbar-color: hsl(215 16% 82%) transparent;
+  }
+
+  /* 页面内容进入动画 */
+  .page-enter {
+    animation: page-enter 0.28s ease-out;
+  }
+  @keyframes page-enter {
+    from {
+      opacity: 0;
+      transform: translateY(6px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  /* 数据行悬停（表格通用） */
+  .row-hover {
+    transition: background-color 0.15s ease;
+  }
+  .row-hover:hover {
+    background-color: hsl(210 25% 96%);
+  }
+
+  /* 统计卡图标渐变块 */
+  .stat-icon {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 0.75rem;
+    color: #fff;
+    box-shadow: 0 4px 10px -2px rgb(0 0 0 / 0.18);
+  }
+  .stat-icon-teal {
+    background: linear-gradient(135deg, hsl(180 79% 30%), hsl(180 85% 20%));
+  }
+  .stat-icon-amber {
+    background: linear-gradient(135deg, hsl(38 92% 50%), hsl(28 92% 42%));
+  }
+  .stat-icon-blue {
+    background: linear-gradient(135deg, hsl(217 65% 55%), hsl(220 70% 45%));
+  }
+  .stat-icon-green {
+    background: linear-gradient(135deg, hsl(152 47% 45%), hsl(152 60% 36%));
+  }
+  .stat-icon-rose {
+    background: linear-gradient(135deg, hsl(330 62% 58%), hsl(330 70% 48%));
+  }
+  .stat-icon-gray {
+    background: linear-gradient(135deg, hsl(218 12% 58%), hsl(218 14% 48%));
+  }
+
+  /* 顶部刷新进度条（数据刷新期间滑动） */
+  .top-progress-bar {
+    animation: top-progress-slide 1.1s ease-in-out infinite;
+  }
+  @keyframes top-progress-slide {
+    0% {
+      transform: scaleX(0);
+      transform-origin: left center;
+    }
+    45% {
+      transform: scaleX(1);
+      transform-origin: left center;
+    }
+    55% {
+      transform: scaleX(1);
+      transform-origin: right center;
+    }
+    100% {
+      transform: scaleX(0);
+      transform-origin: right center;
+    }
+  }
+}
